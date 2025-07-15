@@ -74,43 +74,43 @@ class MultiHeadAttention(nn.Module):
 
 
 
-mha = MultiHeadAttention(
-  d_in=2,
-  d_out=4,
-  context_length=2,
-  dropout=0.1,
-  num_heads=2
-)
+# mha = MultiHeadAttention(
+#   d_in=2,
+#   d_out=4,
+#   context_length=2,
+#   dropout=0.1,
+#   num_heads=2
+# )
 
-x = torch.randn(1, 2, 2)
+# x = torch.randn(1, 2, 2)
 
-print(x)
+# print(x)
 
-print(mha(x))
+# print(mha(x))
 
 
-a = torch.tensor([[[[0.2745, 0.6584, 0.2775, 0.8573],
-                    [0.8993, 0.0390, 0.9268, 0.7388],
-                    [0.7173, 0.7058, 0.9156, 0.4340]],
+# a = torch.tensor([[[[0.2745, 0.6584, 0.2775, 0.8573],
+#                     [0.8993, 0.0390, 0.9268, 0.7388],
+#                     [0.7173, 0.7058, 0.9156, 0.4340]],
                     
-                    [[0.0772, 0.3565, 0.1479, 0.5331],
-                    [0.4066, 0.2318, 0.4545, 0.9737],
-                    [0.4606, 0.5159, 0.4220, 0.5786]]]])
-print('a.transpose(2, 3)')
-print(a.transpose(2, 3))
-print('a @ a.transpose(2, 3)')
-print(a @ a.transpose(2, 3))
-#[[0.2745, 0.6584, 0.2775, 0.8573],
-# [0.8993, 0.0390, 0.9268, 0.7388],
-# [0.7173, 0.7058, 0.9156, 0.4340]]
-first_head = a[0, 0,:, :]
-first_res = first_head @ first_head.T
-print('first_head:\n', first_head)
+#                     [[0.0772, 0.3565, 0.1479, 0.5331],
+#                     [0.4066, 0.2318, 0.4545, 0.9737],
+#                     [0.4606, 0.5159, 0.4220, 0.5786]]]])
+# print('a.transpose(2, 3)')
+# print(a.transpose(2, 3))
+# print('a @ a.transpose(2, 3)')
+# print(a @ a.transpose(2, 3))
+# #[[0.2745, 0.6584, 0.2775, 0.8573],
+# # [0.8993, 0.0390, 0.9268, 0.7388],
+# # [0.7173, 0.7058, 0.9156, 0.4340]]
+# first_head = a[0, 0,:, :]
+# first_res = first_head @ first_head.T
+# print('first_head:\n', first_head)
 
-second_head = a[0, 1,:, :]
-second_res = second_head @ second_head.T
-print('second_head:\n', second_head)
+# second_head = a[0, 1,:, :]
+# second_res = second_head @ second_head.T
+# print('second_head:\n', second_head)
 
-print('first_res:\n', first_res)
-print('second_res:\n', second_res)
+# print('first_res:\n', first_res)
+# print('second_res:\n', second_res)
 

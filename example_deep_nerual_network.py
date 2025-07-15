@@ -23,11 +23,6 @@ class ExampleDeepNeuralNetwork(nn.Module):
         x = layer_output
     return x
 
-# 클래스 외부로 이동
-layer_sizes = [3,3,3,3,3,3]
-sample_input = torch.tensor([[1.,0.,-1.]])
-torch.manual_seed(123)
-model_without_shortcut = ExampleDeepNeuralNetwork(layer_sizes, use_shortcut=False)
 
 def print_gradient(model, x ):
   output = model(x)
@@ -43,4 +38,21 @@ def print_gradient(model, x ):
             f"{param.grad.abs().mean().item()}")
       
 
+# 클래스 외부로 이동
+layer_sizes = [3,3,3,3,3,3]
+sample_input = torch.tensor([[1.,0.,-1.]])
+torch.manual_seed(123)
+model_without_shortcut = ExampleDeepNeuralNetwork(layer_sizes, use_shortcut=False)
 print_gradient(model_without_shortcut, sample_input)
+
+print("-"*50)
+
+torch.manual_seed(123)
+model_with_shortcut = ExampleDeepNeuralNetwork(layer_sizes, use_shortcut=True)
+print_gradient(model_with_shortcut, sample_input)
+
+
+
+
+
+
